@@ -1,0 +1,21 @@
+{
+	"name": "medium-image-craft",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Md Readwan",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.7.2",
+		"express": "^4.19.2",
+		"moment": "^2.30.1",
+		"node-html-to-image": "^4.0.0",
+		"nodemon": "^3.1.3"
+	}
+}
