@@ -1,15 +1,22 @@
 {
-	"version": 2,
+	"functions": {
+		"api/**/*.js": {
+			"runtime": "nodejs16.x",
+			"maxDuration": 10,
+			"memory": 512
+		}
+	},
 	"builds": [
 		{
-			"src": "./index.js",
+			"src": "index.js",
 			"use": "@vercel/node"
 		}
 	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/"
-		}
-	]
+	"env": {
+		"PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "true",
+		"CHROMIUM_PATH": "/usr/bin/chromium-browser"
+	},
+	"scripts": {
+		"postinstall": "apt-get install -y chromium-browser"
+	}
 }

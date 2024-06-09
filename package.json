@@ -15,6 +15,7 @@
 	"author": "Md Readwan",
 	"license": "ISC",
 	"dependencies": {
+		"puppeteer": "^19.0.0",
 		"axios": "^1.7.2",
 		"express": "^4.19.2",
 		"moment": "^2.30.1",

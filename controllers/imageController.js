@@ -1,6 +1,7 @@
 const mediumService = require('../services/mediumService');
 const nodeHtmlToImage = require('node-html-to-image');
 const moment = require('moment');
+const puppeteer = require('puppeteer');
 const imageTemplate = require('../views/imageTemplate');
 
 exports.generateImage = async (req, res) => {
@@ -20,6 +21,10 @@ exports.generateImage = async (req, res) => {
 		const categoriesText = categories.map((cat) => `#${cat}`).join(' ');
 
 		const image = await nodeHtmlToImage({
+			puppeteerArgs: {
+				executablePath: process.env.CHROMIUM_PATH || puppeteer.executablePath(),
+				args: ['--no-sandbox', '--disable-setuid-sandbox'],
+			},
 			html: imageTemplate(title, author, formattedDate, categoriesText),
 		});
 
